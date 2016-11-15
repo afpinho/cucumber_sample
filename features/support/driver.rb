@@ -16,19 +16,34 @@ if ENV['HEADLESS']
   Capybara.default_driver = :poltergeist
 else
 
-  # Firefox
-  if ENV['BROWSER'].eql? 'firefox'
-    Capybara.register_driver :firefox do |app|
-      Capybara::Selenium::Driver.new(app, :browser => :firefox)
-    end
-    Capybara.default_driver = :firefox
+  case ENV['BROWSER']
 
-  # Chrome
-  else
-    Capybara.register_driver :chrome do |app|
-      Capybara::Selenium::Driver.new(app, :browser => :chrome)
-    end
-    Capybara.default_driver = :chrome
+    # Firefox
+    when 'firefox'
+      Capybara.register_driver :firefox do |app|
+        Capybara::Selenium::Driver.new(app, :browser => :firefox)
+      end
+      Capybara.default_driver = :firefox
+
+    # Safari
+    when 'safari'
+      Capybara.register_driver :safari do |app|
+        options = {
+            :js_errors => false,
+            :timeout => 360,
+            :debug => false,
+            :inspector => false,
+        }
+        Capybara::Selenium::Driver.new(app, :browser => :safari)
+      end
+      Capybara.default_driver = :safari
+
+    # Chrome
+    else
+      Capybara.register_driver :chrome do |app|
+        Capybara::Selenium::Driver.new(app, :browser => :chrome)
+      end
+      Capybara.default_driver = :chrome
 
   end
 
