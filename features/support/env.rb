@@ -5,12 +5,12 @@ require 'selenium-webdriver'
 require 'site_prism'
 require 'pry'
 
-# Set environment, QA as default
+# Setting environment, QA as default
 if ENV['ENV'].nil?
   env = 'qa'
 else
-  unless ENV['ENV'].eql? 'qa' or ENV['ENV'].eql? 'stage' or ENV['ENV'].eql? 'prod'
+  unless ENV['ENV'].casecmp('qa') or ENV['ENV'].casecmp('stage') or ENV['ENV'].casecmp('prod')
     fail!(raise(ArgumentError.new("Invalid environment: #{ENV['ENV']}. Please select qa, stage or prod".red)))
   end
-  env = ENV['ENV']
+  env = ENV['ENV'].downcase
 end
