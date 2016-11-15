@@ -6,7 +6,7 @@ GEM
     archive-zip (0.7.0)
       io-like (~> 0.3.0)
     builder (3.2.2)
-    byebug (9.0.5)
+    byebug (9.0.6)
     capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
