@@ -100,13 +100,13 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (~> 2.10, >= 2.10.1)
-  chromedriver-helper
-  colorize
+  chromedriver-helper (~> 1.0)
+  colorize (~> 0.8.1)
   cucumber (~> 2.4)
-  parallel_tests
+  parallel_tests (~> 2.10)
   phantomjs (~> 2.1)
-  poltergeist
-  pry
+  poltergeist (~> 1.11)
+  pry (~> 0.10.4)
   pry-byebug (~> 3.4)
   rake
   rspec
