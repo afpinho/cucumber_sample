@@ -28,12 +28,6 @@ else
     # Safari
     when 'safari'
       Capybara.register_driver :safari do |app|
-        options = {
-            :js_errors => false,
-            :timeout => 360,
-            :debug => false,
-            :inspector => false,
-        }
         Capybara::Selenium::Driver.new(app, :browser => :safari)
       end
       Capybara.default_driver = :safari
